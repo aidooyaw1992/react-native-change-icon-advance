@@ -4,17 +4,10 @@
 </p>
 
 <p align="center">
-<<<<<<< Updated upstream
-	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/dt/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/v/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
-=======
 	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/npm/dt/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/npm/v/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
->>>>>>> Stashed changes
 </p>
 
 ---
@@ -26,15 +19,9 @@
 		<img src="https://img.shields.io/badge/iOS-dbdbdb?style=flat-square" alt="iOS">
 	</p>
 	<div align="center">
-<<<<<<< Updated upstream
-		<code>yarn add react-native-change-icon-extended</code>
-		<br/>
-		<code>npm i react-native-change-icon-extended</code>
-=======
 		<code>yarn add react-native-change-icon-advance</code>
 		<br/>
 		<code>npm i react-native-change-icon-advance</code>
->>>>>>> Stashed changes
 	</div>
 </p>
 
@@ -54,7 +41,6 @@
 		I'd suggest exporting them around `1024px` or higher.
 	</p>
 </p>
-
 
 <div align="center">
 	<a href="./docs/examples/Step-1">Example Icon Files</a>
