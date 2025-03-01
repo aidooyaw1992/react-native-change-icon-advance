@@ -192,11 +192,7 @@
 </p>
 
 ```javascript
-<<<<<<< Updated upstream
-import { changeIcon, getIcon, resetIcon } from 'react-native-change-icon-extended';
-=======
 import { changeIcon, getIcon, resetIcon } from "react-native-change-icon-advance";
->>>>>>> Stashed changes
 
 // Pass the name of icon to be enabled
 changeIcon("Dark");
