@@ -14,14 +14,14 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @ReactModule(name = "ChangeIcon")
 public class ChangeIconModule extends ReactContextBaseJavaModule implements Application.ActivityLifecycleCallbacks {
     public static final String NAME = "ChangeIcon";
     private final String packageName;
-    private final Set<String> classesToKill = new HashSet<>();
+    private final List<String> classesToKill = new ArrayList<>();
     private Boolean iconChanged = false;
     private String componentClass = "";
 
@@ -63,55 +63,51 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
     public void changeIcon(String iconName, Promise promise) {
         final Activity activity = getCurrentActivity();
         final String activityName = activity.getComponentName().getClassName();
-        if (activity == null) {
-            promise.reject("ANDROID:ACTIVITY_NOT_FOUND");
-            return;
-        }
         if (this.componentClass.isEmpty()) {
-            this.componentClass = activityName.endsWith("MainActivity") ? activityName + "Default" : activityName;
+            this.componentClass = activityName;
         }
 
-        final String newIconName = (iconName == null || iconName.isEmpty()) ? "Default" : iconName;
+        final String newIconName = (iconName == null || iconName.isEmpty()) ? "" : iconName;
         final String activeClass = this.packageName + ".MainActivity" + newIconName;
         if (this.componentClass.equals(activeClass)) {
             promise.reject("ANDROID:ICON_ALREADY_USED:" + this.componentClass);
             return;
         }
-        try {
-            activity.getPackageManager().setComponentEnabledSetting(
-                    new ComponentName(this.packageName, activeClass),
-                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                    PackageManager.DONT_KILL_APP);
-            promise.resolve(newIconName);
-        } catch (Exception e) {
-            promise.reject("ANDROID:ICON_INVALID");
-            return;
-        }
+
         this.classesToKill.add(this.componentClass);
         this.componentClass = activeClass;
         activity.getApplication().registerActivityLifecycleCallbacks(this);
         iconChanged = true;
+        promise.resolve(newIconName);
     }
 
     private void completeIconChange() {
-        if (!iconChanged)
-            return;
+        if (!iconChanged) return;
         final Activity activity = getCurrentActivity();
-        if (activity == null)
-            return;
-        
-        classesToKill.remove(componentClass);
-        classesToKill.forEach((cls) -> activity.getPackageManager().setComponentEnabledSetting(
-                new ComponentName(this.packageName, cls),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP));
+        if (activity == null) return;
+
+        activity.getPackageManager().setComponentEnabledSetting(
+                new ComponentName(this.packageName, this.componentClass),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+
+        for (String cls : classesToKill) {
+            activity.getPackageManager().setComponentEnabledSetting(
+                    new ComponentName(this.packageName, cls),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP);
+        }
         classesToKill.clear();
         iconChanged = false;
     }
 
+    private boolean isFinishing(Activity activity) {
+        return activity != null && activity.isFinishing();
+    }
+
     @Override
     public void onActivityPaused(Activity activity) {
-        completeIconChange();
+//        completeIconChange();
     }
 
     @Override
@@ -124,6 +120,7 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
 
     @Override
     public void onActivityResumed(Activity activity) {
+
     }
 
     @Override
@@ -136,5 +133,9 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
 
     @Override
     public void onActivityDestroyed(Activity activity) {
+        if (!isFinishing(activity)) {
+            return;  // Skip if it's not actually finishing
+        }
+        completeIconChange();
     }
 }
