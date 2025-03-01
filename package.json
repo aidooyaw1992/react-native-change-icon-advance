@@ -1,7 +1,7 @@
 {
   "name": "react-native-change-icon-extended",
   "title": "React Native Change Icon",
-  "version": "6.0.0",
+  "version": "1.0.0",
   "description": "Change application icon programmatically in React-Native.",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -12,7 +12,7 @@
     "ios",
     "dist/**/*",
     "NativeChangeIcon.ts",
-    "react-native-change-icon.podspec",
+    "react-native-change-icon-extended.podspec",
     "react-native.config.js",
     "README.md"
   ],
@@ -24,13 +24,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/aidooyaw1992/react-native-change-icon",
+  "repository": "https://github.com/aidooyaw1992/react-native-change-icon-extended",
   "author": "Daniel Aidoo <aidooyaw1992@gmail.com> (https://github.com/aidooyaw1992)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aidooyaw1992/react-native-change-icon/issues"
+    "url": "https://github.com/aidooyaw1992/react-native-change-icon-extended/issues"
   },
-  "homepage": "https://github.com/aidooyaw1992/react-native-change-icon#readme",
+  "homepage": "https://github.com/aidooyaw1992/react-native-change-icon-extended#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
