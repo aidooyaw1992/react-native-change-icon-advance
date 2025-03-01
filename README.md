@@ -4,10 +4,10 @@
 </p>
 
 <p align="center">
-	<a href="https://www.npmjs.com/package/react-native-change-icon"><img src="https://img.shields.io/npm/dt/react-native-change-icon?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon"><img src="https://img.shields.io/npm/v/react-native-change-icon?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon?style=flat-square" alt="NPM downloads"></a>
-	<a href="https://www.npmjs.com/package/react-native-change-icon"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/dt/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/v/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
 </p>
 
 ---
@@ -19,9 +19,9 @@
 		<img src="https://img.shields.io/badge/iOS-dbdbdb?style=flat-square" alt="iOS">
 	</p>
 	<div align="center">
-		<code>yarn add react-native-change-icon</code>
+		<code>yarn add react-native-change-icon-extended</code>
 		<br/>
-		<code>npm i react-native-change-icon</code>
+		<code>npm i react-native-change-icon-extended</code>
 	</div>
 </p>
 
@@ -189,7 +189,7 @@
 
 
 ```javascript
-import { changeIcon, getIcon, resetIcon } from 'react-native-change-icon';
+import { changeIcon, getIcon, resetIcon } from 'react-native-change-icon-extended';
 
 // Pass the name of icon to be enabled
 changeIcon('Dark');
