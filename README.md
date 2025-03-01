@@ -1,13 +1,20 @@
 <p align="center">
-  <h2 align="center">React Native Change Icon</h2>
+  <h2 align="center">React Native Change Icon Advance</h2>
   <h4 align="center">Programmatically change the application icon.</h4>
 </p>
 
 <p align="center">
+<<<<<<< Updated upstream
 	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/dt/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/npm/v/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
 	<a href="https://www.npmjs.com/package/react-native-change-icon-extended"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon-extended?style=flat-square" alt="NPM downloads"></a>
+=======
+	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/npm/dt/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/npm/v/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/bundlephobia/min/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
+	<a href="https://www.npmjs.com/package/react-native-change-icon-advance"><img src="https://img.shields.io/github/stars/skb1129/react-native-change-icon-advance?style=flat-square" alt="NPM downloads"></a>
+>>>>>>> Stashed changes
 </p>
 
 ---
@@ -19,9 +26,15 @@
 		<img src="https://img.shields.io/badge/iOS-dbdbdb?style=flat-square" alt="iOS">
 	</p>
 	<div align="center">
+<<<<<<< Updated upstream
 		<code>yarn add react-native-change-icon-extended</code>
 		<br/>
 		<code>npm i react-native-change-icon-extended</code>
+=======
+		<code>yarn add react-native-change-icon-advance</code>
+		<br/>
+		<code>npm i react-native-change-icon-advance</code>
+>>>>>>> Stashed changes
 	</div>
 </p>
 
@@ -41,7 +54,7 @@
 		I'd suggest exporting them around `1024px` or higher.
 	</p>
 </p>
-  
+
 
 <div align="center">
 	<a href="./docs/examples/Step-1">Example Icon Files</a>
@@ -59,8 +72,8 @@
 	</p>
 </p>
 
-- Just upload your images from earlier, and checkmark both `iPhone` and `Android`.
-- This will give you a `.zip` file with the files needed.
+-   Just upload your images from earlier, and checkmark both `iPhone` and `Android`.
+-   This will give you a `.zip` file with the files needed.
 
 <div align="center">
 	<img src="docs/images/icons-examples-generate.png" alt="Generating Icons">
@@ -74,11 +87,12 @@
 	</h3>
 </p>
 
-- You need to rename and sort these files slightly differently for both `iOS` and `Android`.
+-   You need to rename and sort these files slightly differently for both `iOS` and `Android`.
 
 **Android 🤖**
+
 1. Simply just rename them to something appropriate - typically this follows the naming convention `ic_launcher_<type>.png` e.g. `ic_launcher_dark.png`
-   - Make sure to keep them within the folder structure they are in `mipmap-hdpi`... etc.
+    - Make sure to keep them within the folder structure they are in `mipmap-hdpi`... etc.
 2. Create a single `android` directory with all the `mipmap-*` directories inside. Inside them place all your generated icons.
 
 <div align="center">
@@ -87,6 +101,7 @@
 </div>
 
 **iOS 🍏**
+
 1. You will need the generated folder called `AppIcon.appiconset` as this contains your icons.
 2. Rename this folder a bit like above for Android using a naming convention such as `<type>.appiconset` e.g. `Dark.appiconset`
 3. You will also need to edit the `Contents.json` to change and references from `Assets.xcassets/AppIcon.appiconset` to what you have renamed the file now e.g. `Images.xcassets/AppIcon.appiconset`
@@ -105,9 +120,11 @@
 </p>
 
 **Android 🤖**
+
 1. Drag all of the `mipmap` folders into `android/app/src/main/res/`
 
 **iOS 🍏**
+
 1. Drag all of the `.appiconset` folders into `ios/<app-name>/Images.xcassets`
 
 <div align="center">
@@ -123,19 +140,19 @@
 </p>
 
 **Android 🤖**
-1. Add an alias for each of your new icons within the `AndroidManifest.xml` (within `<application>`).
-   - Make sure these have the properties as shown below.
-   - Create an alias for `.MainActivityDefault` as well but for this, set `android:enabled="true"`.
-   - For the name prefix it `.MainActivity...` followed by the name you will use to reference your icon. e.g. for our light icon we will use `.MainActivityLight`
-2. You'll have to remove the `LAUNCHER` intent filter from the main `<activity>` as we have added the launcher in `.MainActivityDefault`.
 
+1. Add an alias for each of your new icons within the `AndroidManifest.xml` (within `<application>`).
+    - Make sure these have the properties as shown below.
+    - Create an alias for `.MainActivityDefault` as well but for this, set `android:enabled="true"`.
+    - For the name prefix it `.MainActivity...` followed by the name you will use to reference your icon. e.g. for our light icon we will use `.MainActivityLight`
+2. You'll have to remove the `LAUNCHER` intent filter from the main `<activity>` as we have added the launcher in `.MainActivityDefault`.
 
 <div align="center">
 	<a href="./docs/examples/Step-4/AndroidManifest.xml">Example AndroidManifest.xml</a>
 </div>
 
 ```xml
-<activity-alias 
+<activity-alias
 	android:name=".MainActivityLight"
 	android:enabled="false"
 	android:exported="true"
@@ -149,12 +166,13 @@
 ```
 
 **iOS 🍏**
+
 1. At the bottom of your `Info.plist` insert a key for `CFBundleIcons`
-   - Note: For iPad, you need to add the key `CFBundleIcons~ipad`
+    - Note: For iPad, you need to add the key `CFBundleIcons~ipad`
 2. Within this dictionary add another key for `CFBundleAlternateIcons`
 3. Finally then within this dictionary you can add in the keys for you new icons
-   - The `key` is the name you will reference from within code.
-   - Set the first array item to the name of the `.appiconset` we created earlier.
+    - The `key` is the name you will reference from within code.
+    - Set the first array item to the name of the `.appiconset` we created earlier.
 4. In XCode, in your app's `General` settings, under `App Icons and Launch Screen`, set "App Icon" to `Default` and check the "Include all app icon assets" checkbox below.
 
 <div align="center">
@@ -187,13 +205,16 @@
 	</p>
 </p>
 
-
 ```javascript
+<<<<<<< Updated upstream
 import { changeIcon, getIcon, resetIcon } from 'react-native-change-icon-extended';
+=======
+import { changeIcon, getIcon, resetIcon } from "react-native-change-icon-advance";
+>>>>>>> Stashed changes
 
 // Pass the name of icon to be enabled
-changeIcon('Dark');
-changeIcon('Light');
+changeIcon("Dark");
+changeIcon("Light");
 
 // Get the icon currently enabled
 getIcon();
@@ -211,12 +232,16 @@ When using `react-native-push-notification` or `notifee`, notifications won't wo
 To fix this, you need to create a Java file for each of the `activity-alias` in your `AndroidManifest.xml`.
 
 The file should be placed alongside you `MainActivity.java`. Example:
+
 ```
 android/app/src/main/java/com/myapp/MainActivity<KEY>.java
 ```
+
 The content of this file should be:
+
 ```
 package com.myapp;
 public class MainActivity<KEY> extends MainActivity {}
 ```
+
 Replace `<KEY>` with the icon name used in the manifest. Replace com.myapp with your android app structure.
