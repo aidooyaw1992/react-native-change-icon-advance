@@ -5,3 +5,4 @@ export const resetIcon = () => changeIcon();
 export const getIcon = (): Promise<string> => NativeModules.ChangeIcon.getIcon();
 export const notifyExternalActivityStarting = (): Promise<void> => NativeModules.ChangeIcon.notifyExternalActivityStarting();
 export const notifyExternalActivityFinished = (): Promise<void> => NativeModules.ChangeIcon.notifyExternalActivityFinished();
+
