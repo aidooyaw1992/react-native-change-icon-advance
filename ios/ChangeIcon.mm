@@ -7,12 +7,12 @@ RCT_EXPORT_MODULE()
     return NO;
 }
 
-RCT_REMAP_METHOD(notifyExternalActivityStarting, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_REMAP_METHOD(notifyExternalActivityStarting, resolver:(RCTPromiseResolveBlock)resolve activityStartingRejecter:(RCTPromiseRejectBlock)reject) {
      // No-op for iOS - this is only meaningful on Android
   resolve(nil);
 }
 
-RCT_REMAP_METHOD(notifyExternalActivityFinished, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+RCT_REMAP_METHOD(notifyExternalActivityFinished, resolver:(RCTPromiseResolveBlock)resolve activityFinishedRejecter:(RCTPromiseRejectBlock)reject) {
      // No-op for iOS - this is only meaningful on Android
   resolve(nil);
 }
