@@ -7,6 +7,16 @@ RCT_EXPORT_MODULE()
     return NO;
 }
 
+RCT_REMAP_METHOD(notifyExternalActivityStarting:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+     // No-op for iOS - this is only meaningful on Android
+  resolve(nil);
+}
+
+RCT_REMAP_METHOD(notifyExternalActivityFinished:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+     // No-op for iOS - this is only meaningful on Android
+  resolve(nil);
+}
+
 RCT_REMAP_METHOD(getIcon, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *currentIcon = [[UIApplication sharedApplication] alternateIconName];

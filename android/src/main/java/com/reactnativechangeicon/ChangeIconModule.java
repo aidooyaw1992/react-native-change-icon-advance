@@ -24,6 +24,9 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
     private final List<String> classesToKill = new ArrayList<>();
     private Boolean iconChanged = false;
     private String componentClass = "";
+    
+    // Add this field to track if we're in the middle of an external activity
+    private boolean isInExternalActivity = false;
 
     public ChangeIconModule(ReactApplicationContext reactContext, String packageName) {
         super(reactContext);
@@ -101,13 +104,24 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
         iconChanged = false;
     }
 
-    private boolean isFinishing(Activity activity) {
-        return activity != null && activity.isFinishing();
+    @ReactMethod
+    public void notifyExternalActivityStarting(Promise promise) {
+        // Call this before launching contact picker
+        isInExternalActivity = true;
+        promise.resolve(null);
     }
+
+    @ReactMethod
+    public void notifyExternalActivityFinished(Promise promise) {
+        // Call this after returning from contact picker
+        isInExternalActivity = false;
+        promise.resolve(null);
+    }
+
 
     @Override
     public void onActivityPaused(Activity activity) {
-//        completeIconChange();
+        completeIconChange();
     }
 
     @Override
@@ -133,9 +147,6 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        if (!isFinishing(activity)) {
-            return;  // Skip if it's not actually finishing
-        }
-        completeIconChange();
+      
     }
 }
