@@ -4,7 +4,7 @@ export const changeIcon = (iconName?: string): Promise<string> => NativeModules.
 export const resetIcon = () => changeIcon();
 export const getIcon = (): Promise<string> => NativeModules.ChangeIcon.getIcon();
 
-export const resolveAndroidEntryPoint = (activityToBeDisabled: string): Promise<void> => {
+export const resolveAndroidEntryPoint = (activityToBeDisabled: string) => {
   if (Platform.OS == 'android') {
     NativeModules.ChangeIcon.resolveEntryPoint(activityToBeDisabled);
   }

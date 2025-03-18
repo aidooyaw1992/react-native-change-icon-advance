@@ -67,8 +67,7 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP
         );
-        Log.d("Migration", "resolvedEntryPoint: Successful");
-       promise.resolve(true);
+        promise.resolve("resolvedEntryPoint: Successful");
     }
 
     @ReactMethod
