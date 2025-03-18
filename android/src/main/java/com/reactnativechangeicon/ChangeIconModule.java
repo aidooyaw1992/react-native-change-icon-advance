@@ -89,7 +89,7 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
     }
 
     private void completeIconChange() {
-        if (!iconChanged) return;
+        if (!iconChanged || isInExternalActivity) return;
         final Activity activity = getCurrentActivity();
         if (activity == null) return;
 
