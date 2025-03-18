@@ -40,6 +40,38 @@ public class ChangeIconModule extends ReactContextBaseJavaModule implements Appl
     }
 
     @ReactMethod
+    public void resolveEntryPoint(String activityTobeDisabled, Promise promise) {
+        final Activity activity = getCurrentActivity();
+        if (activity == null) {
+           promise.reject("ANDROID:ACTIVITY_NOT_FOUND");
+            return;
+        }
+
+        if(activityTobeDisabled.equals("MainActivity")){
+            promise.resolve("Activity already resolved");
+            return;
+        }
+
+        PackageManager pm = activity.getPackageManager();
+
+        // Enable new activity
+        pm.setComponentEnabledSetting(
+                new ComponentName(this.packageName, this.packageName + ".MainActivity"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP
+        );
+
+        // Disable old activity alias
+        pm.setComponentEnabledSetting(
+                new ComponentName(this.packageName, this.packageName + "." + activityTobeDisabled),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+        );
+        Log.d("Migration", "resolvedEntryPoint: Successful");
+       promise.resolve(true);
+    }
+
+    @ReactMethod
     public void getIcon(Promise promise) {
         final Activity activity = getCurrentActivity();
         if (activity == null) {

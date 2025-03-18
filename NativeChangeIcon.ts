@@ -6,6 +6,7 @@ export interface Spec extends TurboModule {
     changeIcon: (iconName?: string) => Promise<string>;
     resetIcon: () => Promise<string>;
     getIcon: () => Promise<string>;
+    resolveAndroidEntryPoint: (activityToBeDisabled: string) => Promise<void>;
     notifyExternalActivityStarting: () => Promise<void>;
     notifyExternalActivityFinished: () => Promise<void>;
 }
